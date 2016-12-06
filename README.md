@@ -15,6 +15,7 @@ It contains a basic implementation of the [A3C algorithm](https://arxiv.org/abs/
 * opencv-python
 * numpy
 * scipy
+* libgcc
 
 # Getting Started
 
