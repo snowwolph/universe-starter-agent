@@ -45,7 +45,6 @@ def create_tmux_commands(session, num_workers, remotes, env_id, logdir):
 
     cmds = [
         "mkdir -p {}".format(logdir),
-        "tmux kill-session",
         "tmux new-session -s {} -n {} -d".format(session, windows[0]),
     ]
     for w in windows[1:]:
@@ -59,7 +58,7 @@ def create_tmux_commands(session, num_workers, remotes, env_id, logdir):
 
 def run():
     args = parser.parse_args()
-
+    os.system("tmux kill-session")
     cmds = create_tmux_commands("a3c", args.num_workers, args.remotes, args.env_id, args.log_dir)
     print("\n".join(cmds))
     os.system("\n".join(cmds))
