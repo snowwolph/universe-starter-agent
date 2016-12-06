@@ -38,7 +38,7 @@ def create_tmux_commands(session, num_workers, remotes, env_id, logdir):
         cmds_map += [new_tmux_cmd(
             "w-%d" % i, base_cmd + ["--job-name", "worker", "--task", str(i), "--remotes", remotes[i]])]
 
-    cmds_map += [new_tmux_cmd("tb", ["tensorboard --logdir {} --port 12345".format(logdir)])]
+    cmds_map += [new_tmux_cmd("tb", ["tensorboard --logdir {} --port 6006".format(logdir)])]
     cmds_map += [new_tmux_cmd("htop", ["htop"])]
 
     windows = [v[0] for v in cmds_map]
